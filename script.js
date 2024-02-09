@@ -7,6 +7,7 @@ let computerResult = document.getElementById("computerResult");
 let humanResult = document.getElementById("humanResult");
 
 let log = document.getElementById("log");
+
 buttonsWrapper.addEventListener("click", (event) => {
     const target = event.target;
     humanPick = target.getAttribute('alt');
@@ -14,11 +15,13 @@ buttonsWrapper.addEventListener("click", (event) => {
     randomComputerPick = randomComputerPick.toString();
     let computerScore = computerResult.innerText.substring(11,computerResult.innerText.length);
     let humanScore = humanResult.innerText.substring(7,humanResult.innerText.length);
+    //pick the verbal play of the computer and then add it to the log inner text
     if(humanPick==="1" && randomComputerPick ==="2" || humanPick==="2" && randomComputerPick==="3" || humanPick==="3" && randomComputerPick==="1"){
         computerResult.innerText = computerResult.innerText.substring(0,computerResult.innerText.length-computerScore.length);
         computerScore = parseInt(computerScore);
         computerResult.innerText += computerScore+1;
         log.innerText = `Computador ganhou`;
+        //and here use += operator to add the result
     }else if(humanPick === randomComputerPick){
         log.innerText = `Empate`;
     }else{
